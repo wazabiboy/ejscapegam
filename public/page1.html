@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Énigme 1</title>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div>Escape Game</div>
+    <div class="timer" id="timer"></div>
+  </header>
+  <main class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Énigme 1</h1>
+      <p class="mb-4">
+        La clé est cachée dans la console. Trouvez le mot de passe pour continuer.
+      </p>
+      <input
+        type="text"
+        id="answer"
+        placeholder="Entrez la clé..."
+        class="p-2 rounded bg-gray-700 border border-gray-600"
+      />
+      <button
+        id="submitAnswer"
+        class="ml-2 bg-green-600 hover:bg-green-500 text-white py-1 px-3 rounded"
+      >
+        Valider
+      </button>
+    </div>
+  </main>
+  <script src="timer.js"></script>
+  <script>
+    console.log('La clé est : MAGIC');
+    document.getElementById('submitAnswer').addEventListener('click', () => {
+      const answer = document.getElementById('answer').value;
+      if (answer === 'MAGIC') {
+        window.location.href = '/page2.html';
+      } else {
+        alert('Mauvaise réponse.');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Personnalisation supplémentaire */
+body {
+  font-family: 'Arial', sans-serif;
+}
+header {
+  padding: 1rem;
+  background-color: #1c3d5a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+button {
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}

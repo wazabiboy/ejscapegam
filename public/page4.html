@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Énigme 4</title>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div>Escape Game</div>
+    <div class="timer" id="timer"></div>
+  </header>
+  <main class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Énigme 4</h1>
+      <p class="mb-4">
+        Jouez au pendu ! Devinez les lettres du mot.
+      </p>
+      <div id="word" class="font-mono text-xl mb-4"></div>
+      <div id="message" class="text-yellow-500 mb-4"></div>
+      <input
+        type="text"
+        id="guess"
+        placeholder="Devinez une lettre..."
+        maxlength="1"
+        class="p-2 rounded bg-gray-700 border border-gray-600"
+      />
+      <button
+        id="submitGuess"
+        class="ml-2 bg-green-600 hover:bg-green-500 text-white py-1 px-3 rounded"
+      >
+        Valider
+      </button>
+    </div>
+  </main>
+  <script src="timer.js"></script>
+  <script>
+    const word = 'scream';
+    const guessed = new Set();
+    const wordDisplay = document.getElementById('word');
+    const messageDisplay = document.getElementById('message');
+
+    function updateWordDisplay() {
+      const display = Array.from(word).map(letter => (guessed.has(letter) ? letter : '_')).join(' ');
+      wordDisplay.textContent = display;
+      if (!display.includes('_')) {
+        window.location.href = '/page5.html';
+      }
+    }
+
+    document.getElementById('submitGuess').addEventListener('click', () => {
+      const guess = document.getElementById('guess').value.toLowerCase();
+      if (!guess || guess.length !== 1) {
+        alert('Veuillez entrer une lettre.');
+        return;
+      }
+
+      if (word.includes(guess)) {
+        guessed.add(guess);
+        messageDisplay.textContent = 'Bonne réponse !';
+      } else {
+        messageDisplay.textContent = 'Mauvaise réponse.';
+      }
+      updateWordDisplay();
+    });
+
+    updateWordDisplay();
+  </script>
+</body>
+</html>

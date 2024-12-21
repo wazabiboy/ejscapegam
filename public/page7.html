@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Énigme 6</title>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div>Escape Game</div>
+    <div class="timer" id="timer"></div>
+  </header>
+  <main class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Énigme 6</h1>
+      <p class="mb-4">
+        Résolvez ce calcul pour avancer : <strong>56 + 23 = ?</strong>
+      </p>
+      <input
+        type="number"
+        id="answer"
+        placeholder="Votre réponse..."
+        class="p-2 rounded bg-gray-700 border border-gray-600"
+      />
+      <button
+        id="submitAnswer"
+        class="ml-2 bg-green-600 hover:bg-green-500 text-white py-1 px-3 rounded"
+      >
+        Valider
+      </button>
+    </div>
+  </main>
+  <script src="timer.js"></script>
+  <script>
+    document.getElementById('submitAnswer').addEventListener('click', () => {
+      const answer = parseInt(document.getElementById('answer').value);
+      if (answer === 79) {
+        window.location.href = '/page7.html';
+      } else {
+        alert('Mauvaise réponse.');
+      }
+    });
+  </script>
+</body>
+</html>
